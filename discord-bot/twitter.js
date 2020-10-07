@@ -15,17 +15,18 @@ async function getRequest() {
         'tweet.fields': 'author_id' 
     } */
 
-    const res = await needle('get', endpointUrl, /*{ headers: {
+    const res = await needle('get', endpointUrl, { headers: {
         "authorization": `Bearer AAAAAAAAAAAAAAAAAAAAAPmBIQEAAAAAlZwzSfTjo0Pn1FaUJIUu%2Bi4bruc%3DDwklWraDWIBUdy26AflbIYbx8WT53CcYIhQhiz8CZn2kDlJ4XF`
-    }}*/)
+    }})
 
     if(res.body) {
         return res.body;
     } else {
         throw new Error ('Unsuccessful request')
     }
+    
 }
-
+module.export = {getRequest};
 (async () => {
 
     try {
@@ -37,4 +38,5 @@ async function getRequest() {
         console.log(e);
         process.exit(-1);
     }
-  })();
+    process.exit();
+  })(); 
